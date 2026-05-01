@@ -1,0 +1,82 @@
+name: Auto Pull
+
+on:
+  workflow_dispatch:
+  schedule:
+    #- cron: 0 0/6 * * *
+    - cron: 50 19 * * 2,4,5
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - "start"
+
+jobs:
+  build:
+    permissions:
+      contents: write # for release creation
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set env variables
+        run: |
+          echo "COMMIT_MSG=Update on $(date +%Y%m%d)" >> $GITHUB_ENV
+
+      - name: Test env variables
+        run: |
+          echo "${{ env.COMMIT_MSG }}"
+          echo "${COMMIT_MSG}"
+          echo "$COMMIT_MSG"
+
+      - name: Set git
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Clone code
+        env:
+          REPO_URL: https://${{ github.actor }}:${{ secrets.PERSONAL_TOKEN }}@github.com/alecthw/openwrt-passwall.git
+        run: |
+          git clone -b main $REPO_URL passwall
+          cp -af ./passwall/.github ./
+
+      - name: Add remote passwall
+        env:
+          P_REPO_URL: https://github.com/Openwrt-Passwall/openwrt-passwall.git
+        run: |
+          cd passwall
+          git remote add passwall $P_REPO_URL
+          git fetch --all
+          git branch --all
+
+      - name: Add remote packages
+        env:
+          P_REPO_URL: https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git
+        run: |
+          cd passwall
+          git remote add packages $P_REPO_URL
+          git fetch --all
+          git branch --all
+
+      - name: Update main branch
+        run: |
+          cd passwall
+          git reset --hard passwall/main
+
+          if [ ! -f "./luci-app-passwall/Makefile" ];then
+            echo "luci-app-passwall not exist in main branch, exit"
+            exit 0
+          fi
+
+          rm -rf .github/workflows
+          cp -af ../.github ./
+          git add .
+          git commit -m "${{ env.COMMIT_MSG }}"
+          git push -f -u origin main
+
+      - name: Update packages branch
+        run: |
+          cd passwall
+          git checkout -b packages packages/main
+          git push -f -u origin packages
