@@ -1009,7 +1009,7 @@ function gen_config(var)
 				blc_nodes = _node.balancing_node
 			end
 			local valid_nodes = {}
-			for i = 1, #blc_nodes do
+			for i = 1, #(blc_nodes or {}) do
 				local blc_node_id = blc_nodes[i]
 				local blc_node_tag = "blc-" .. blc_node_id
 				local is_new_blc_node = true

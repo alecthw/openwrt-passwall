@@ -1270,7 +1270,7 @@ function gen_config(var)
 			end
 			if #ut_nodes == 0 then return nil end
 			local valid_nodes = {}
-			for i = 1, #ut_nodes do
+			for i = 1, #(ut_nodes or {}) do
 				local ut_node_id = ut_nodes[i]
 				local ut_node_tag = "ut-" .. ut_node_id
 				local is_new_ut_node = true
