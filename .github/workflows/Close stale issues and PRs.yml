@@ -5,7 +5,7 @@ on:
 
 jobs:
   stale:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     permissions:
       issues: write
       actions: write
@@ -25,15 +25,6 @@ jobs:
           days-before-issue-close: 5
           days-before-pr-close: -1
           operations-per-run: 500
-
-      - name: Close specific labels immediately
-        uses: actions/stale@v10
-        with:
-          any-of-issue-labels: 'invalid,no plan,wontfix'
-          days-before-issue-stale: 0
-          days-before-issue-close: 0
-          stale-issue-message: 'This issue has been automatically closed because it was marked as `invalid` `no plan` `wontfix`.'
-          stale-issue-label: 'closed-by-bot'
 
       # - name: Delete workflow runs
       #   uses: Mattraks/delete-workflow-runs@main
