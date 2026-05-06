@@ -24,7 +24,7 @@ jobs:
           NUMBER: ${{ github.event.issue.number || github.event.pull_request.number }}
           EVENT_TYPE: ${{ github.event_name }}
         run: |
-          COMMENT="This content has been marked as `invalid`,`no plan` or `wontfix`; the system has automatically closed it."
+          COMMENT="This content has been marked as invalid,no plan or wontfix; the system has automatically closed it."
           LABEL_TO_ADD="closed-by-bot"
           
           if [ "$EVENT_TYPE" == "issues" ]; then
