@@ -412,7 +412,8 @@ jobs:
             git add .
             git commit -m "${{ matrix.pakcages }}: update to ${{ steps.update.outputs.version }}"
             git push origin $branch
-
+            
+            gh label create "automated-pr" --color "1D76DB" --description "Created automatically by GitHub Actions" || true
             gh pr create \
             --title "$title" \
             --body "$title" \
