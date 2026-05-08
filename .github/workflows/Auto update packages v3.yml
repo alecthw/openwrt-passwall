@@ -390,7 +390,7 @@ jobs:
         id: cpr
         if: steps.check.outputs.status == 'success' && steps.check.outputs.New_PKG_VERSION != '' && steps.update.outputs.branch_exists == '' && !cancelled()
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PKG_TOKEN }}
         run: |
           branch="patches-${{ matrix.pakcages }}-${{ steps.update.outputs.version }}"
           title="${{ matrix.pakcages }}: update to ${{ steps.update.outputs.version }}"
