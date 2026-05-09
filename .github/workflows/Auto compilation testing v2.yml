@@ -6,13 +6,15 @@
 name: Auto compilation testing v2
 
 on:
-  push:
+  #push:
+  #  branches:
+  #    - main
+  #  paths-ignore:
+  #    - '**.md'
+  #    - '.github/**'
+  pull_request:
     branches:
       - main
-    paths-ignore:
-      - '**.md'
-      - '.github/**'
-  pull_request:
     paths-ignore:
       - '**.md'
       - '.github/**'
@@ -26,25 +28,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # 使用 -snapshot 后缀拉取最新的滚动开发版 SDK 镜像
+       # 这些架构我感觉应该可以覆盖了全部主流指令集：包含 x86, ARM64, ARM32, MIPS (LE), MIPS (BE)。
         arch:
-          - x86-64-snapshot
-          - rockchip-armv8-snapshot
-          - mvebu-cortexa53-snapshot
-          - mvebu-cortexa72-snapshot
-          - at91-sama5-snapshot
-          - mediatek-mt7629-snapshot
-          - sunxi-cortexa7-snapshot
-          - sunxi-cortexa8-snapshot
-          - bcm53xx-generic-snapshot
-          - zynq-generic-snapshot
-          - mvebu-cortexa9-snapshot
-          - ipq806x-generic-snapshot
-          - ath79-generic-snapshot
-          - realtek-rtl838x-snapshot
-          - ramips-rt288x-snapshot
-          - ramips-rt3883-snapshot
-          - bcm47xx-generic-snapshot
+          - x86-64
+          - rockchip-armv8
+          - sunxi-cortexa7
+          - ramips-rt288x
+          - ath79-generic
+          - ipq806x-generic
 
     steps:
       - name: Checkout code
@@ -83,7 +74,7 @@ jobs:
         if: env.SKIP_BUILD == 'false'
         uses: openwrt/gh-action-sdk@main
         env:
-          ARCH: ${{ matrix.arch }}
+          ARCH: ${{ matrix.arch }}-snapshot
           FEEDNAME: passwall_packages
           PACKAGES: ${{ env.PACKAGES }}
           V: s
