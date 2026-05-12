@@ -68,9 +68,9 @@ jobs:
             folder: chinadns-ng
             version_head: PKG_VERSION:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/zfl9/chinadns-ng/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/zfl9/chinadns-ng/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/zfl9/chinadns-ng/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/zfl9/chinadns-ng/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             base_download_url: https://github.com/zfl9/chinadns-ng/releases/download/
 
           - pakcages: geoview
@@ -79,9 +79,9 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/snowie2000/geoview/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/snowie2000/geoview/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/snowie2000/geoview/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/snowie2000/geoview/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/snowie2000/geoview/tar.gz/
 
           - pakcages: hysteria
@@ -90,9 +90,9 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/apernet/hysteria/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/apernet/hysteria/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/apernet/hysteria/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/apernet/hysteria/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/apernet/hysteria/tar.gz/app/v
 
           - pakcages: ipt2socks
@@ -101,9 +101,9 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/zfl9/ipt2socks/tags" | jq -r 'first | .name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/zfl9/ipt2socks/tags" | jq -r 'first | .name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/zfl9/ipt2socks/tags" | jq -r 'first | .name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/zfl9/ipt2socks/tags" | jq -r 'first | .name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/zfl9/ipt2socks/tar.gz/v
 
           - pakcages: microsocks
@@ -112,18 +112,18 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/rofl0r/microsocks/tags" | jq -r 'first | .name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/rofl0r/microsocks/tags" | jq -r 'first | .name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/rofl0r/microsocks/tags" | jq -r 'first | .name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/rofl0r/microsocks/tags" | jq -r 'first | .name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/rofl0r/microsocks/tar.gz/v
 
           - pakcages: naiveproxy
             update_type: multi_arch_ifeq
             folder: naiveproxy
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/klzgrad/naiveproxy/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/klzgrad/naiveproxy/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/klzgrad/naiveproxy/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/klzgrad/naiveproxy/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
 
           - pakcages: shadow-tls
             update_type: single
@@ -131,9 +131,9 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/ihciah/shadow-tls/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/ihciah/shadow-tls/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/ihciah/shadow-tls/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/ihciah/shadow-tls/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/ihciah/shadow-tls/tar.gz/v
 
           - pakcages: shadowsocks-rust
@@ -142,9 +142,9 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/shadowsocks/shadowsocks-rust/tar.gz/v
             
           - pakcages: sing-box
@@ -153,9 +153,9 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/SagerNet/sing-box/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/SagerNet/sing-box/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/SagerNet/sing-box/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/SagerNet/sing-box/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/SagerNet/sing-box/tar.gz/v
 
           - pakcages: tuic-client
@@ -163,9 +163,9 @@ jobs:
             folder: tuic-client
             version_head: PKG_VERSION:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/Itsusinn/tuic/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/Itsusinn/tuic/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/Itsusinn/tuic/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/Itsusinn/tuic/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             base_download_url: https://github.com/Itsusinn/tuic/releases/download/v
 
           - pakcages: v2ray-plugin
@@ -174,9 +174,9 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/teddysun/v2ray-plugin/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/teddysun/v2ray-plugin/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/teddysun/v2ray-plugin/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/teddysun/v2ray-plugin/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/teddysun/v2ray-plugin/tar.gz/v
 
           - pakcages: xray-core
@@ -185,9 +185,9 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/XTLS/Xray-core/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/XTLS/Xray-core/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/XTLS/Xray-core/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/XTLS/Xray-core/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/XTLS/Xray-core/tar.gz/v
 
           - pakcages: xray-plugin
@@ -196,9 +196,9 @@ jobs:
             version_head: PKG_VERSION:=
             hash_head: PKG_HASH:=
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/teddysun/xray-plugin/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/teddysun/xray-plugin/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/teddysun/xray-plugin/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/teddysun/xray-plugin/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/teddysun/xray-plugin/tar.gz/v
 
           - pakcages: v2ray-geoip
@@ -209,9 +209,9 @@ jobs:
             hash_head: \  HASH:=
             hash_line: 21
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/Loyalsoldier/geoip/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/Loyalsoldier/geoip/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/Loyalsoldier/geoip/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/Loyalsoldier/geoip/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://github.com/Loyalsoldier/geoip/releases/download/
             file_name: /geoip.dat
 
@@ -223,12 +223,11 @@ jobs:
             hash_head: \  HASH:=
             hash_line: 30
             release_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/Loyalsoldier/v2ray-rules-dat/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/Loyalsoldier/v2ray-rules-dat/releases" | jq -r 'map(select(.prerelease|not)) | first | .tag_name' | sed -e 's/.*v//'
             prerelease_api_command: >
-              curl -sL -H "Authorization: Bearer ${{ github.token }}" "https://api.github.com/repos/Loyalsoldier/v2ray-rules-dat/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
+              curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/Loyalsoldier/v2ray-rules-dat/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/
             file_name: /geosite.dat
-
     steps:
       - name: Checkout
         uses: actions/checkout@main
@@ -240,6 +239,8 @@ jobs:
 
       - name: Check ${{ matrix.pakcages }}
         id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           is_continue=true
           if [ "${{ github.event.inputs.is_update_geodata }}" != "true" ] && [ "${{ matrix.is_geodata }}" == "true" ]; then
