@@ -61,7 +61,23 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        pakcages: [chinadns-ng, geoview, hysteria, ipt2socks, microsocks, naiveproxy, shadow-tls, shadowsocks-rust, sing-box, tuic-client, v2ray-plugin, xray-core, xray-plugin, v2ray-geoip, v2ray-geosite]
+        pakcages: 
+          - chinadns-ng
+          - geoview
+          # - haproxy
+          - hysteria
+          - ipt2socks
+          - microsocks
+          - naiveproxy
+          - shadow-tls
+          - shadowsocks-rust
+          - sing-box
+          - tuic-client
+          - v2ray-plugin
+          - xray-core
+          - xray-plugin
+          - v2ray-geoip
+          - v2ray-geosite
         include:
           - pakcages: chinadns-ng
             update_type: multi_arch_pkg
@@ -83,6 +99,9 @@ jobs:
             prerelease_api_command: >
               curl -sL -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/snowie2000/geoview/releases" | jq -r 'first | .tag_name' | sed -e 's/.*v//'
             release_download_url: https://codeload.github.com/snowie2000/geoview/tar.gz/
+
+          # - pakcages: haproxy
+
 
           - pakcages: hysteria
             update_type: single
